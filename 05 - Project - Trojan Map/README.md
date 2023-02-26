@@ -168,7 +168,7 @@ Time taken by function: 2 ms
 std::pair<double, double> GetPosition(std::string name);
 ```
 
-Given a location name, return the latitude and longitude. There are no duplicated location names. You should mark the given locations on the map. If the location does not exist, return (-1, -1). The algorithm is case-sensitive.
+Given a location name, our algorithm returns the corresponding latitude and longitude and marks the given location on the map. If the location does not exist, the algorithm returns (-1, -1). The algorithm is case-sensitive.
 
 Example:
 
@@ -201,8 +201,6 @@ When entering a location name that does not exist in the map, the map will deter
 + Replace a character
 
 If the exact match is found, it will be shown on the map. Otherwise, the map will show the most similar name by using FindClosestName and print a warning. For example, if I type Rolphs, I should get a warning like "Did you mean Ralphs instead of Rolphs?"
-
-You can use dynamic programming to calculate edit distance. 
 
 Example:
 
@@ -241,9 +239,7 @@ std::vector<std::string> CalculateShortestPath_Bellman_Ford(std::string &locatio
                                                std::string &location2_name);
 ```
 
-Given 2 locations A and B, find the best route from A to B. The distance between 2 points is the euclidean distance using latitude and longitude. You should use both Dijkstra algorithm and Bellman-Ford algorithm. Compare the time for the different methods. Show the routes on the map. If there is no path, please return empty vector.
-
-Please report and compare the time spent by these 2 algorithms.
+Given 2 locations A and B, an algorithm finds the best route from A to B. The distance between 2 points is the euclidean distance using latitude and longitude. Algorithms implemented include the Dijkstra algorithm and the Bellman-Ford algorithm. The routes are also displayed on the map. If there is no path, an empty vector is returned.
 
 Example:
 
@@ -286,12 +282,9 @@ Time taken by function: 3484 ms
 
 ## Step 4: The Travelling Trojan Problem (AKA Travelling Salesman!)
 
-In this section, we assume that we are using a UAV which means we can fly directly from 1 point to another point. Given a vector of location ids, assume every location can reach all other locations in the vector (i.e. assume that the vector of location ids is a complete graph).
-Find the shortest route that covers all the locations exactly once and goes back to the start point. 
+In this section, we assume that we are using a UAV which means we can fly directly from 1 point to another point. Given a vector of location ids, we implement an algorithm that finds the shortest route that covers all the locations exactly once and goes back to the start point. This shortest path is then shown as an animation on the map. 
 
-You will need to return the progress to get the shortest route which will then be converted to an animation.  
-
-We will use the following algorithms:
+The following algorithms are used:
 
 - Brute-force (i.e. generating all permutations, and returning the minimum)
 ```c++
@@ -310,12 +303,6 @@ std::pair<double, std::vector<std::vector<std::string>>> TravellingTrojan_2opt(
 ```
 
 We use early backtracking when the current cost is higher than current minimum.
-
-Please report and compare the time spent by these 3 algorithms. 2-opt algorithm may not get the optimal solution. Please show how far your solution is from the optimal solution.
-
-Show the routes on the map. For each intermediate solution, create a new plot. Your final video presentation should include the changes to your solution.
-
-We will randomly select N points in the map and run your program.
 
 ```shell
 **************************************************************
