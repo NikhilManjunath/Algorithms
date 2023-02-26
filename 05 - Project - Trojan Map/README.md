@@ -1,7 +1,5 @@
 # TrojanMap
 
-## TrojanMap
-
 This project focuses on using data structures in C++ and implementing various graph algorithms to build a map application.
 
 <p align="center"><img src="img/TrojanMap.png" alt="Trojan" width="500" /></p>
@@ -68,13 +66,13 @@ $ cmake -D CMAKE_INSTALL_PREFIX=**path_to_install_folder** -D BUILD_LIST=core,hi
 $ make install
 ```
 
-For example, if cloned this repo under "/Users/ari/github/TrojanMap", you should type:
+For example, if cloned this repo under "/Users/nikhil/github/TrojanMap", you should type:
 
 ```shell
 $ cd opencv/
 $ mkdir build install
 $ cd build
-$ cmake -D CMAKE_INSTALL_PREFIX=/Users/ari/github/TrojanMap/opencv/install -D BUILD_LIST=core,highgui,imgcodecs,imgproc,videoio ..
+$ cmake -D CMAKE_INSTALL_PREFIX=/Users/nikhil/github/TrojanMap/opencv/install -D BUILD_LIST=core,highgui,imgcodecs,imgproc,videoio ..
 $ make install
 ```
 
@@ -116,12 +114,12 @@ Please select 1 - 8:
 
 ## Test the program
 
-We created some tests for you to test your program, please run
+In order to test the functionalities of our program, please run
 ```shell
 $ bazel test tests:trojanmap_test
 ```
 
-Please add you test in the [trojanmap_test_student.cc](tests/trojanmap_test_student.cc) and run
+You can add your own testcases in the [trojanmap_test_student.cc](tests/trojanmap_test_student.cc) and run
 
 ```shell
 $ bazel test tests:trojanmap_test_student
@@ -133,7 +131,7 @@ $ bazel test tests:trojanmap_test_student
 std::vector<std::string> Autocomplete(std::string name);
 ```
 
-We consider the names of nodes as the locations. Implement a method to type the partial name of the location and return a list of possible locations with partial name as prefix. Please treat uppercase and lower case as the same character.
+We consider the names of nodes as the locations. Upon typing a partial name of the location, a functionality is implemented that returns a list of possible locations with partial name as prefix.
 
 Example:
 
