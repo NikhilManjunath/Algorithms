@@ -1,16 +1,4 @@
-# EE538 Final Project - Spring 2022 - TrojanMap
-
-## Deadline: 
-
-
-Phase 1 submission: Monday, April 11 by 23:59 pm
-
-Phase 2 submission: Wednesday, April 20 by 23:59 pm
-
-Phase 3 submission: Sunday, May 1 by 23:59 pm
-
-Video Presentation: Friday, April 29
-
+# TrojanMap
 
 ## TrojanMap
 
@@ -18,9 +6,8 @@ This project focuses on using data structures in C++ and implementing various gr
 
 <p align="center"><img src="img/TrojanMap.png" alt="Trojan" width="500" /></p>
 
-- Please clone the repository, look through [README.md](README.md) and fill up functions to finish in the project.
+- Please clone the repository, look through [README.md](README.md).
 - Please make sure that your code can run `bazel run/test`.
-- In this project, you will need to fill up [trojanmap.cc](src/lib/trojanmap.cc) and add unit tests in the `tests` directory.
 
 ---
 
@@ -48,7 +35,7 @@ class Node {
 
 ### OpenCV Installation
 
-For visualization, we use OpenCV library. You will use this library as a black box and don't need to worry about the graphic details.
+For visualization, we use OpenCV library.
 
 Use the following commands to install OpenCV and other libarary.
 
