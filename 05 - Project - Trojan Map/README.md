@@ -309,8 +309,6 @@ We use early backtracking when the current cost is higher than current minimum.
 * 4. Travelling salesman problem                              
 **************************************************************
 
-In this task, we will select N random points on the map and you need to find the path to travel these points and back to the start point.
-
 Please input the number of the places:8
 "8201681442","6197156485","7786565237","6820972477","6807600525","1832234142","6819144993","1873055949",
 Calculating ...
@@ -353,7 +351,7 @@ bool CycleDetection(std::vector<double> &square);
 
 In this section, we use a square-shaped subgraph of the original graph by using four coordinates stored in ```std::vector<double> square```, which follows the order of left, right, upper, and lower bounds. 
 
-Then try to determine if there is a cycle path in the that subgraph. If it does, return true and report that path on the map. Otherwise return false.
+Then we try to determine if there is a cycle path in the that subgraph. If it does, we return true and report that path on the map. Otherwise we return false.
 
 Example 1:
 ```shell
@@ -406,12 +404,7 @@ Time taken by function: 0 ms
 std::vector<std::string> DeliveringTrojan(std::vector<std::string> &location_names,
                                             std::vector<std::vector<std::string>> &dependencies);
 ```
-In this section, we assume that we are using a UAV which means we can fly directly from 1 point to another point. Tommy Trojan got a part-time job from TrojanEats, for which he needs to pick up and deliver food from local restaurants to various location near the campus. Tommy needs to visit a few different location near the campus with certain order, since there are some constraints. For example, he must first get the food from the restaurant before arriving at the delivery point. 
-
-The TrojanEats app will have some instructions about these constraints. So, Tommy asks you to help him figure out the feasible route!
-
-Here we will give you a vector of location names that Tommy needs to visit, and also some dependencies between those locations.
-
+In this section, we assume that we are using a UAV which means we can fly directly from 1 point to another point. Topological Sort involves going through a list of locations on the map in a certain order. Hence, it is all about finding a feasible route given the list of location names and the dependencies between these locations.
 
 For example, 
 
@@ -424,19 +417,13 @@ dependencies = {{"Ralphs","KFC"}, {"Ralphs","Chick-fil-A"}, {"Chick-fil-A", "KFC
 Here, ```{"Ralphs","KFC"}``` means
 that Tommy must go to `Ralphs` prior to `KFC`.
 
-Your output should be:
+The output will be:
 ```shell
 Output: Ralphs  -> Chick-fil-A -> KFC
 ```
 Also, we provide ```PlotPointsOrder``` function that can visualize the results on the map. It will plot each location name and also some arrowed lines to demonstrate a feasible route.
 
-If no feasible route exists, you could simply return an empty vector.
-
-Hint:
-- You also need to finish ```ReadLocationsFromCSVFile``` and ```ReadDependenciesFromCSVFile``` functions, so you could read and parse data from you own CSV files. We also give two sample CSV files under ```input``` folder, which could be a reference. 
-- When it asks you filenames, you need to give the absolute path.
-- If you do not have ```ReadLocationsFromCSVFile``` and ```ReadDependenciesFromCSVFile``` functions ready yet, you can just press enter when it asks you filenames. It will call the default locations and dependencies.
-- The locations are actually nodes, and the dependencies could be directed edges. You may want to first construct a DAG and then implement topological sort algorithm to get the route.
+If no feasible route exists, we simply return an empty vector.
 
 ```shell
 *************************Results******************************
@@ -449,12 +436,11 @@ Time taken by function: 2 ms
 ```
 <p align="center"><img src="img/TopologicalSort.png" alt="TSP" width="500"/></p>
 
-In the user interface, we read the locations and dependencies from `topologicalsort_dependencies.csv` and `topologicalsort_locations.csv` to modify your input there.
+In the user interface, we read the locations and dependencies from `topologicalsort_dependencies.csv` and `topologicalsort_locations.csv` to modify our input.
 
 ## Step 7: Find Nearby
 
-Given a attribute name C, a location name L and a number r and k, find at most k locations in attribute C on the map near L(do not include L) with the range of r and return a vector of string ids. The order of locaitons should from
-nearest to farthest. And you should not include the current location. 
+Given a attribute name C, a location name L and a number r and k, the algorithm finds at most k locations in attribute C on the map near L(not including L) with the range of r and returns a vector of string ids. The order of locaitons go from nearest to farthest.
 
 ```c++
 std::vector<std::string> TrojanMap::FindNearby(std::string attributesName, std::string name, double r, int k);
@@ -464,8 +450,6 @@ All attributes
 'artwork', 'attraction', 'bakery', 'bank', 'bar', 'beauty', 'beverages', 'bicycle', 'bicycle_rental', 'bus_station', 'cafe', 'car', 'car_repair', 'car_wash', 'charging_station', 'childcare', 'clinic', 'clothes', 'confectionery', 'convenience', 'copyshop', 'dentist', 'department_store', 'driving_school', 'fabric', 'fast_food', 'food_court', 'fountain', 'fuel', 'gallery', 'hairdresser', 'hospital', 'hotel', 'library', 'marketplace', 'mobile_phone', 'museum', 'music', 'optician', 'parcel_locker', 'parking', 'pharmacy', 'place_of_worship', 'police', 'post_office', 'restaurant', 'school', 'shoe_repair', 'shoes', 'skate', 'social_facility', 'supermarket', 'theatre', 'tobacco', 'yes', 'yoga'
 ```
 
-
-Please report and compare the time spent by this algorithm and show the points on the map.
 
 ```shell
 **************************************************************
@@ -487,67 +471,4 @@ Time taken by function: 5 ms
 
 <p align="center"><img src="img/Nearby.png" alt="Nearby" width="500"/></p>
 
-
-## Reporting Runtime:
-For each menu item, your program should show the time it took to finish each task.
-
-Please make sure to provide various examples when you report the runtime. For example for topological sort, show an example with few nodes and another example with 10 or more nodes. The idea is to see how your runtime grows as input size grows.
-
-## Runtime Comparison
-For shortest path algorithms, you should compare solving the same problem with different algorithms (Dijkstra and Bellman-Ford). Please show the results on at least 3 different examples.
-
-Similarly for TSP problem, please provide various examples that show the runtime comparison. In particular, you should show at what point using the exhaustive search is not practical and compare the same input with the heuristic implementation.
-
-
-## Report and Rubrics:
-
-Your final project should be checked into Github. The README of your project is your report. 
-
-### Report:
-
-Your REPORT.md file should include four sections:
-Please create a new REPORT.md file and write your report there.
-
-1. High-level overview of your design (Use diagrams and pictures for your data structures).
-2. Detailed description of each function and its time complexity.
-3. Time spent for each function.
-4. Discussion, conclusion, and lessons learned.
-
-### Rubrics:
-
-1. Implementation of Auto complete: 5 points. (Phase 1)
-2. Implementation of GetPosition: 5 points. (Phase 1)
-3. Implementation of EditDistance: 10 points. (Phase 1)
-4. Implementation of shortest path: 15 points. (Phase 2)
-   1. Bellman-Ford implementation
-   2. Dijkstra implementation
-   3. Plot two paths, and measure and report time spent by two algorithms.
-5. Implement of Cycle detection: 10 points. (Phase 2)
-   1. Boolean value and draw the cycle if there exists one.
-6. Topological Sort: 10 points. (Phase 2)
-   1. Check whether there exist a topological sort or not
-   2. Return the correct order and plot those point on the map
-7. Implementation of Travelling Trojan: (Phase 3)
-   1. Brute-force: 5 points.
-   2. Brute-force enhanced with early backtracking: 5 points.
-   3. 2-opt: 10 points.
-   4. Animated plot: 5 points.
-8. FindNearby points: 10 points. (Phase 3)
-   1. Return the correct ids and draw the points.
-9. Video presentation and report: 10 points. (Phase 3)
-10. Creating reasonable unit tests: 10 points.
-      1. Three different unit tests for each item.
-11. **Extra credit items**: Maximum of 20 points:
-      1. [3-opt](http://cs.indstate.edu/~zeeshan/aman.pdf): 10 points.
-      2. [Genetic algorithm](https://www.geeksforgeeks.org/traveling-salesman-problem-using-genetic-algorithm/) implementation for Travelling Trojan: 10 points
-      3. Create dynamic and animated UI using [ncurses](https://en.wikipedia.org/wiki/Ncurses): 10 points
-         - Uncomment #define NCURSES in main.cc and mapui.h
-         - Create your menu in DynamicPrintMenu().
-         - You could check https://github.com/ourarash/ncurses_bazel
-         - Please develope your own UI.
-         - Example
-            <p align="center"><img src="img/ncurses example.gif" alt="example" width="500"/></p>
-               
-
-      4. Accurate measurement of your algorithm    runtime using Google Benchmark while sweeping the input size and providing a diagram of how the runtime grows based on the input size: 10 points.
 
